@@ -4,21 +4,25 @@ A scalable backend system for managing events, built with Node.js, Express, Type
 It includes authentication, role-based access, RSVP system, caching, rate limiting, and async email notifications using background workers.
 
 🚀 Features
+
 🔐 Authentication & Authorization
 User registration and login
 JWT-based authentication
 Role-based access (ADMIN / USER)
 Protected routes middleware
+
 📅 Event Management
 Create, update, delete events (admin-controlled)
 Get all events / single event
 Track event creator
 Auto-notification when events are updated
+
 🙋 RSVP System
 Join event
 Leave event
 Prevent duplicate RSVPs
 Track users per event
+
 🔔 Notification System
 Email sent when:
 User joins an event
@@ -29,6 +33,7 @@ Powered by BullMQ + Redis worker
 Redis caching for events list
 Rate limiting using Redis (anti-spam protection)
 Background job processing (non-blocking API)
+
 🔒 Security
 JWT authentication
 Password hashing (bcrypt)
@@ -46,6 +51,7 @@ JWT
 Nodemailer
 bcrypt
 Helmet, Morgan, CORS
+
 📁 Project Structure
 src/
 ├── config/          # Prisma & Redis config
@@ -58,6 +64,7 @@ src/
 ├── workers/         # Background worker
 ├── app.ts           # Express app
 └── server.ts        # Entry point
+
 🗄️ Database Schema (Prisma)
 User
 id, name, email, password, role
@@ -69,6 +76,7 @@ rsvps
 RSVP
 userId + eventId (unique constraint)
 links users to events
+
 ⚙️ Setup Instructions
 1. Clone repository
 git clone https://github.com/your-username/event-backend-system.git
@@ -101,6 +109,7 @@ npm run worker
 Production
 npm run build
 npm start
+
 📬 API Endpoints
 Auth
 POST /api/auth/register → Register user
@@ -114,6 +123,7 @@ DELETE /api/events/:id → Delete event (ADMIN)
 RSVP
 POST /api/events/join → Join event
 POST /api/events/leave → Leave event
+
 🔄 System Flow
 User performs action (join / leave / update event)
 API pushes job to Redis queue (BullMQ)
