@@ -53,6 +53,7 @@ bcrypt
 Helmet, Morgan, CORS
 
 📁 Project Structure
+
 src/
 ├── config/          # Prisma & Redis config
 ├── middlewares/     # Auth, role, rate limit
